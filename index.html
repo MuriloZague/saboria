@@ -24,8 +24,10 @@
     <section class="searchSection">
         <h1 class="titleHome" style="text-align: center;">Encontre O <span style="color: #E96B35;">Melhor<br> Prato</span> Para A Sua Fome!</h1>
         <img style="position: absolute; top: 12.8rem; left: 1.7rem;" src="./src/search-icon.svg" alt="">
-        <input type="text" class="searchBar" placeholder="Pesquise por uma receita">
+        
+        <input type="text" class="searchBar" placeholder="Pesquise por uma receita" onkeyup="searchRecipes()">
     </section>
+
     <section class="sliderContainer">
         <div class="card" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop');">
             <span>Pratos Típicos</span>
@@ -123,12 +125,27 @@
     </footer>
 
     <script>
+        function searchRecipes() {
+            let input = document.querySelector('.searchBar').value.toLowerCase();
+            
+            let products = document.querySelectorAll('.product');
+
+            for (let i = 0; i < products.length; i++) {
+   
+                let title = products[i].querySelector('h1').innerText.toLowerCase();
+
+                if (title.includes(input)) {
+                    products[i].style.display = "";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+
         function toggleFavorite(imgElement) {
             const productTextDiv = imgElement.parentElement.previousElementSibling;
             const spanFavorites = productTextDiv.querySelector('span');
-
             let currentText = spanFavorites.innerText;
-
             let count = parseInt(currentText);
 
             if (imgElement.src.includes('save.svg')) {
@@ -138,7 +155,6 @@
                 imgElement.src = './src/save.svg';
                 count--;
             }
-
             spanFavorites.innerText = count + " favoritos";
         }
     </script>
