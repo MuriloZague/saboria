@@ -51,53 +51,51 @@ header {
     color: #B8B8B8;
 }
 
-
 .sliderContainer {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  overflow-x: auto;
-  /*scroll-snap-type: x mandatory;*/ 
-  scrollbar-width: none;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .sliderContainer::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .card {
-  min-width: 250px; 
-  height: 115px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  scroll-snap-align: start;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: transform 0.2s;
+    min-width: 250px; 
+    height: 115px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
 }
 
 .card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
-  z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    z-index: 1;
 }
 
 .card span {
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-family: sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .btnDiv {
