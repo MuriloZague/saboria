@@ -43,62 +43,63 @@
             <button class="btn"><a>Cardápio</a></button>
         </div>
         <h1 class="titleHome" style="text-align: center; margin-bottom: 2rem;">Principais <span style="color: #E96B35;">Pratos</span></h1>
+        
         <div class="products">
-        <div class="product">
-            <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/feijoada 2.png">
-            <div class="textProduct">
-                <div>
-                    <h1 style="font-size: 1rem;">Feijoada</h1>
-                    <img src="./src/Star 3.svg" >
-                    <span style="font-size: 0.5rem; color: #797979; margin-top: 1rem;">169 favoritos</span>
-                </div>
-                <div>
-                    <img src="./src/save.svg" style="cursor: pointer;">
+            <div class="product">
+                <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/feijoada 2.png">
+                <div class="textProduct">
+                    <div>
+                        <h1 style="font-size: 1rem;">Feijoada</h1>
+                        <img src="./src/Star 3.svg" width="10px">
+                        <span style="font-size: 0.6rem; color: #797979; margin-top: 1rem;">169 favoritos</span>
+                    </div>
+                    <div>
+                        <img src="./src/save.svg" style="cursor: pointer;" onclick="toggleFavorite(this)">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="product">
-            <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/lasanha 3.png">
-            <div class="textProduct">
-                <div>
-                    <h1 style="font-size: 1rem;">Lasanha</h1>
-                    <img src="./src/Star 3.svg" >
-                    <span style="font-size: 0.5rem; color: #797979; margin-top: 1rem;">467 favoritos</span>
-                </div>
-                <div>
-                    <img src="./src/save.svg" style="cursor: pointer;">
+            <div class="product">
+                <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/lasanha 3.png">
+                <div class="textProduct">
+                    <div>
+                        <h1 style="font-size: 1rem;">Lasanha</h1>
+                        <img src="./src/Star 3.svg" width="10px">
+                        <span style="font-size: 0.6rem; color: #797979; margin-top: 1rem;">467 favoritos</span>
+                    </div>
+                    <div>
+                        <img src="./src/save.svg" style="cursor: pointer;" onclick="toggleFavorite(this)">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="product">
-            <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/bolo 2.png">
-            <div class="textProduct">
-                <div>
-                    <h1 style="font-size: 1rem;">Bolo de Fubá</h1>
-                    <img src="./src/Star 3.svg" >
-                    <span style="font-size: 0.5rem; color: #797979; margin-top: 1rem;">999 favoritos</span>
-                </div>
-                <div>
-                    <img src="./src/save.svg" style="cursor: pointer;">
+            <div class="product">
+                <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/bolo 2.png">
+                <div class="textProduct">
+                    <div>
+                        <h1 style="font-size: 1rem;">Bolo de Fubá</h1>
+                        <img src="./src/Star 3.svg" width="10px">
+                        <span style="font-size: 0.6rem; color: #797979; margin-top: 1rem;">999 favoritos</span>
+                    </div>
+                    <div>
+                        <img src="./src/save.svg" style="cursor: pointer;" onclick="toggleFavorite(this)">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="product">
-            <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/feijoada 2.png">
-            <div class="textProduct">
-                <div>
-                    <h1 style="font-size: 1rem;">Feijoada 2</h1>
-                    <img src="./src/Star 3.svg" >
-                    <span style="font-size: 0.5rem; color: #797979; margin-top: 1rem;">129 favoritos</span>
-                </div>
-                <div>
-                    <img src="./src/save.svg" style="cursor: pointer;">
+            <div class="product">
+                <img style="width: 100%; border-radius: 0.6rem 0.6rem 0rem 0rem;" src="./src/feijoada 2.png">
+                <div class="textProduct">
+                    <div>
+                        <h1 style="font-size: 1rem;">Feijoada 2</h1>
+                        <img src="./src/Star 3.svg" width="10px">
+                        <span style="font-size: 0.6rem; color: #797979; margin-top: 1rem;">129 favoritos</span>
+                    </div>
+                    <div>
+                        <img src="./src/save.svg" style="cursor: pointer;" onclick="toggleFavorite(this)">
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
         <p style="text-align: center; font-size: 0.8rem; margin-top: 2rem; margin-bottom: 2rem;"><span style="color: #E96B35;">1</span> 2 3 ... 67</p>
     </section>
@@ -120,5 +121,26 @@
             <p>Rua Rio de Janeiro, 615, Casa 3</p>
         </div>
     </footer>
+
+    <script>
+        function toggleFavorite(imgElement) {
+            const productTextDiv = imgElement.parentElement.previousElementSibling;
+            const spanFavorites = productTextDiv.querySelector('span');
+
+            let currentText = spanFavorites.innerText;
+
+            let count = parseInt(currentText);
+
+            if (imgElement.src.includes('save.svg')) {
+                imgElement.src = './src/savecolorida.svg';
+                count++;
+            } else {
+                imgElement.src = './src/save.svg';
+                count--;
+            }
+
+            spanFavorites.innerText = count + " favoritos";
+        }
+    </script>
 </body>
 </html>
